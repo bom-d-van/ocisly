@@ -2,6 +2,8 @@
 
 package ocisly contains a goroutine Wait function that could be used in testing environment.
 
+Name inspired by SpaceX drone ship [Of Course I Still Love you](https://en.wikipedia.org/wiki/Autonomous_spaceport_drone_ship).
+
 [![GoDoc](https://godoc.org/github.com/golang/gddo?status.svg)](http://godoc.org/github.com/bom-d-van/ocisly)
 
 A simple example
