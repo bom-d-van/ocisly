@@ -2,6 +2,8 @@
 
 package ocisly contains a goroutine Wait function that could be used in testing environment.
 
+[![GoDoc](https://godoc.org/github.com/golang/gddo?status.svg)](http://godoc.org/github.com/bom-d-van/ocisly)
+
 A simple example
 
 ```go
