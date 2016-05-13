@@ -16,6 +16,8 @@ import (
 
 var IntervalBegin = time.Millisecond * 30
 
+// TODO: use exponential backoff
+
 // Wait waits until you named gorouine finish.
 //
 // If the Wait exits before your goroutine started, you could specify a large
