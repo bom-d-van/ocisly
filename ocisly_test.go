@@ -4,9 +4,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/bom-d-van/sidekick"
-
 	"github.com/bom-d-van/ocisly/testdata/pkg"
+	"github.com/bom-d-van/sidekick"
 )
 
 type s struct{}
