@@ -30,8 +30,9 @@ How to figure out your function name. Basically it's {{ImportPath}}.{{FuncName}}
 				ocisly.Wait("github.com/alice/pkg.Func")
 		Case 2: method named "method" in type "typ" from package (same or other) named "github.com/alice/pkg"
 				ocisly.Wait("github.com/alice/pkg.(typ).(github.com/alice/pkg.method)")
-		Case 3: method named "method" in type "typ" from package (same or other) named "github.com/alice/pkg"
-				ocisly.Wait("github.com/alice/pkg.(typ).(github.com/alice/pkg.method)")
+		Case 3: first anonymous function called "foo" in function/method named "Func" in package (same or other)
+				named "github.com/alice/pkg".
+				ocisly.Wait("github.com/alice/pkg.Func.func1")
 Running examples could be found in file ocisly_test.go.
 
 Disclaimer: cases mentioned above isn't comprehensive, so if your function is
