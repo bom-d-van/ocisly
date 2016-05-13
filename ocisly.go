@@ -42,7 +42,7 @@ func Wait(name string) {
 	WaitTimeout(name, DefaultTimeout)
 }
 
-// WaitTimeout works same as Wait, but suppot timeout specification.
+// WaitTimeout works same as Wait, but suppots timeout specification.
 func WaitTimeout(name string, timeout time.Duration) {
 	var errc int
 	var sleep = IntervalBegin
