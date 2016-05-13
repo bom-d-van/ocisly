@@ -32,11 +32,11 @@ var IntervalBegin = time.Millisecond * 30
 // 				ocisly.Wait("github.com/alice/pkg.(typ).(github.com/alice/pkg.method)")
 // Running examples could be found in file ocisly_test.go.
 //
-// Suggestion: to improve Wait accuacy, you could turn your inline/anonyomous function to a named function.
+// Disclaimer: cases mentioned above isn't comprehensive, so if your function is
+// complicated to figure out by human brain, you could call
+// ocisly.PrintGoroutines() to help you figure out what name is your gorouinte using.
 //
-// If your function case is too complicated, you could call
-// ocisly.PrintGoroutines() to help you figure out what name is your gorouinte
-// using.
+// Suggestion: to improve Wait accuracy, you could turn your inline/anonymous function to a named function.
 func Wait(name string) {
 	var errc int
 	var sleep = IntervalBegin
