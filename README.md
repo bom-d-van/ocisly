@@ -20,7 +20,7 @@ func main() {
 Explanations:
 
 ```
-Wait waits until you named gorouine finish.
+Wait waits until you named gorouine finish. Using DefaultTimeout (initialized 10 seconds)
 
 If the Wait exits before your goroutine started, you could specify a large
 IntervalBegin to avoid this problem.

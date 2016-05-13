@@ -15,10 +15,11 @@ import (
 )
 
 var IntervalBegin = time.Millisecond * 30
+var DefaultTimeout = time.Second * 10
 
 // TODO: use exponential backoff
 
-// Wait waits until you named gorouine finish.
+// Wait waits until you named gorouine finish. Using DefaultTimeout (initialized 10 seconds)
 //
 // If the Wait exits before your goroutine started, you could specify a large
 // IntervalBegin to avoid this problem.
@@ -38,12 +39,22 @@ var IntervalBegin = time.Millisecond * 30
 //
 // Suggestion: to improve Wait accuracy, you could turn your inline/anonymous function to a named function.
 func Wait(name string) {
+	WaitTimeout(name, DefaultTimeout)
+}
+
+// WaitTimeout works same as Wait, but suppot timeout specification.
+func WaitTimeout(name string, timeout time.Duration) {
 	var errc int
 	var sleep = IntervalBegin
 	for {
 		runtime.Gosched()
 		time.Sleep(sleep)
 		sleep *= 2
+
+		if sleep > timeout {
+			println("ocisly: timeout")
+			return
+		}
 
 		// PrintGoroutines()
 
