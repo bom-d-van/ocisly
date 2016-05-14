@@ -11,6 +11,7 @@ import (
 type s struct{}
 
 func (*s) method() {
+	// PrintSuggests()
 	time.Sleep(time.Millisecond * 100)
 	pkg.Love = true
 }
@@ -35,6 +36,7 @@ func TestWait(t *testing.T) {
 		1: {f: inline, name: "github.com/bom-d-van/ocisly.TestWait.func1"},
 		2: {f: function, name: "github.com/bom-d-van/ocisly.function"},
 		3: {f: i.method, name: "github.com/bom-d-van/ocisly.(*s).(github.com/bom-d-van/ocisly.method)"},
+		4: {f: i.method, name: "github.com/bom-d-van/ocisly.(*s).method"},
 	}
 
 	for i, c := range cases {
@@ -53,6 +55,6 @@ func TestWait(t *testing.T) {
 	}
 }
 
-// func TestSuggestName(t *testing.T) {
-// 	SuggestName()
+// func TestPrintSuggests(t *testing.T) {
+// 	PrintSuggests()
 // }

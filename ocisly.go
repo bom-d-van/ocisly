@@ -8,6 +8,7 @@ package ocisly
 
 import (
 	"bytes"
+	"fmt"
 	"os"
 	"runtime"
 	"runtime/pprof"
@@ -81,6 +82,22 @@ func WaitTimeout(name string, timeout time.Duration) {
 func PrintGoroutines() {
 	p := pprof.Lookup("goroutine")
 	p.WriteTo(os.Stdout, 1)
+}
+
+// PrintSuggestions prints function/method name suggestions that could be used in
+// Wait function.
+func PrintSuggestions() {
+	for i := 1; ; i++ {
+		pc, _, _, ok := runtime.Caller(i)
+		if !ok {
+			break
+		}
+		fn := runtime.FuncForPC(pc)
+		if fn == nil {
+			continue
+		}
+		fmt.Printf("[ocisly] suggestion %d: %s\n", i, fn.Name())
+	}
 }
 
 // TODO: return suggest Wait names.
