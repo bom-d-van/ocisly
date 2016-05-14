@@ -28,8 +28,8 @@ IntervalBegin to avoid this problem.
 How to figure out your function name. Basically it's {{ImportPath}}.{{FuncName}}.
 		Case 1: function named "Func" from package (same or other) named "github.com/alice/pkg"
 				ocisly.Wait("github.com/alice/pkg.Func")
-		Case 2: method named "method" in type "typ" from package (same or other) named "github.com/alice/pkg"
-				ocisly.Wait("github.com/alice/pkg.(typ).(github.com/alice/pkg.method)")
+		Case 2: method named "method" in type "*typ" from package (same or other) named "github.com/alice/pkg"
+				ocisly.Wait("github.com/alice/pkg.(*typ).method")
 		Case 3: first anonymous function called "foo" in function/method named "Func" in package (same or other)
 				named "github.com/alice/pkg".
 				ocisly.Wait("github.com/alice/pkg.Func.func1")
