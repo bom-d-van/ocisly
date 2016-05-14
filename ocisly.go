@@ -18,7 +18,7 @@ import (
 var IntervalBegin = time.Millisecond * 30
 var DefaultTimeout = time.Second * 10
 
-// TODO: use exponential backoff
+// TODO: use exponential back-off
 
 // Wait waits until you named gorouine finish. Using DefaultTimeout (initialized 10 seconds)
 //
@@ -44,7 +44,7 @@ func Wait(name string) {
 	WaitTimeout(name, DefaultTimeout)
 }
 
-// WaitTimeout works same as Wait, but suppots timeout specification.
+// WaitTimeout works same as Wait, but supports timeout specification.
 func WaitTimeout(name string, timeout time.Duration) {
 	var errc int
 	var sleep = IntervalBegin
