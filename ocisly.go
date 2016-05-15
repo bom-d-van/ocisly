@@ -7,7 +7,6 @@
 package ocisly
 
 import (
-	"bytes"
 	"fmt"
 	"os"
 	"runtime"
@@ -46,8 +45,9 @@ func Wait(name string) {
 
 // WaitTimeout works same as Wait, but supports timeout specification.
 func WaitTimeout(name string, timeout time.Duration) {
-	var errc int
+	// var errc int
 	var sleep = IntervalBegin
+wait:
 	for {
 		runtime.Gosched()
 		time.Sleep(sleep)
@@ -60,21 +60,22 @@ func WaitTimeout(name string, timeout time.Duration) {
 
 		// PrintGoroutines()
 
-		p := pprof.Lookup("goroutine")
-		buf := bytes.NewBuffer(make([]byte, 1<<20)) // size: 1MB
-		if err := p.WriteTo(buf, 1); err != nil {
-			if errc > 3 {
-				println("ocisly: faile to write profile")
-				return
-			}
-
-			errc++
+		var srs = make([]runtime.StackRecord, runtime.NumGoroutine())
+		_, ok := runtime.GoroutineProfile(srs)
+		if !ok {
 			continue
 		}
-		// TODO: " "+name+"+" doesn't work. Why?
-		if !bytes.Contains(buf.Bytes(), []byte(name)) {
-			break
+		for _, sr := range srs {
+			for _, pc := range sr.Stack() {
+				f := runtime.FuncForPC(pc)
+				// log.Printf("--> %+v\n", f.Name())
+				if f.Name() == name {
+					continue wait
+				}
+			}
 		}
+
+		break
 	}
 }
 

@@ -35,7 +35,7 @@ func TestWait(t *testing.T) {
 		0: {f: pkg.Nop, name: "github.com/bom-d-van/ocisly/testdata/pkg.Nop"},
 		1: {f: inline, name: "github.com/bom-d-van/ocisly.TestWait.func1"},
 		2: {f: function, name: "github.com/bom-d-van/ocisly.function"},
-		3: {f: i.method, name: "github.com/bom-d-van/ocisly.(*s).(github.com/bom-d-van/ocisly.method)"},
+		3: {f: i.method, name: "github.com/bom-d-van/ocisly.(*s).(github.com/bom-d-van/ocisly.method)-fm"},
 		4: {f: i.method, name: "github.com/bom-d-van/ocisly.(*s).method"},
 	}
 
