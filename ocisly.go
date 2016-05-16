@@ -47,6 +47,7 @@ func Wait(name string) {
 func WaitTimeout(name string, timeout time.Duration) {
 	// var errc int
 	var sleep = IntervalBegin
+
 wait:
 	for {
 		runtime.Gosched()
@@ -65,6 +66,7 @@ wait:
 		if !ok {
 			continue
 		}
+
 		for _, sr := range srs {
 			for _, pc := range sr.Stack() {
 				f := runtime.FuncForPC(pc)
