@@ -55,7 +55,7 @@ wait:
 		sleep *= 2
 
 		if sleep > timeout {
-			println("ocisly: timeout")
+			println("[ocisly] error: timeout")
 			return
 		}
 
